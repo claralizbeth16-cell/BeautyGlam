@@ -93,3 +93,41 @@ nav a{
     text-align:left;
     line-height:2;
 }
+
+body{
+    font-family: Arial, sans-serif;
+    background:#fff0f5;
+    text-align:center;
+}
+
+.producto{
+    width:250px;
+    display:inline-block;
+    margin:15px;
+    padding:15px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.producto img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+button{
+    background:#ff4f9a;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e63c84;
+}
+    line-height:2;
+}
