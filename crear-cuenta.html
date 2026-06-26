@@ -2,54 +2,83 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Cuenta - Beauty Glam</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="contenedor">
+<header>
+    <h1>💖 Beauty Glam</h1>
+</header>
 
-    <h1>💖 Crear Cuenta</h1>
+<div class="formulario">
 
-    <input type="text" id="nombre" placeholder="Nombre completo"><br><br>
+    <h2>Crear Cuenta</h2>
 
-    <input type="email" id="correo" placeholder="Correo"><br><br>
+    <input type="text" id="nombre" placeholder="Nombre completo">
 
-    <input type="password" id="password" placeholder="Contraseña"><br><br>
+    <input type="email" id="correo" placeholder="Correo electrónico">
 
-   <script>
+    <input type="password" id="password" placeholder="Contraseña">
 
-function registrar(){
+    <input type="password" id="confirmar" placeholder="Confirmar contraseña">
 
-alert("El botón funciona");
-
-}
-
-</script>
+    <button onclick="registrarUsuario()">
+        Registrarse
+    </button>
 
     <br><br>
 
+    <p>¿Ya tienes una cuenta?</p>
+
     <a href="login.html">
-        ¿Ya tienes cuenta? Inicia sesión
+        Iniciar Sesión
     </a>
 
 </div>
 
+<script src="script.js"></script>
+
 <script>
-function registrar(){
 
-    let nombre = document.getElementById("nombre").value;
-    let correo = document.getElementById("correo").value;
-    let password = document.getElementById("password").value;
+function registrarUsuario(){
 
-    localStorage.setItem("nombre", nombre);
-    localStorage.setItem("correo", correo);
-    localStorage.setItem("password", password);
+    let nombre=document.getElementById("nombre").value;
+    let correo=document.getElementById("correo").value;
+    let password=document.getElementById("password").value;
+    let confirmar=document.getElementById("confirmar").value;
 
-    alert("Cuenta creada correctamente");
+    if(nombre=="" || correo=="" || password=="" || confirmar==""){
+
+        alert("Completa todos los campos.");
+        return;
+
+    }
+
+    if(password!=confirmar){
+
+        alert("Las contraseñas no coinciden.");
+        return;
+
+    }
+
+    let usuario={
+
+        nombre:nombre,
+        correo:correo,
+        password:password
+
+    };
+
+    localStorage.setItem("usuario",JSON.stringify(usuario));
+
+    alert("Cuenta creada correctamente.");
 
     window.location.href="login.html";
+
 }
+
 </script>
 
 </body>
