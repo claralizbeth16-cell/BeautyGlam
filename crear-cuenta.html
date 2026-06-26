@@ -2,38 +2,55 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Cuenta - Beauty Glam</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>💖 Beauty Glam</h1>
-</header>
-
 <div class="contenedor">
 
-    <h2>Crear Cuenta</h2>
-    <p>Únete a nuestra comunidad de belleza.</p>
+    <h1>💖 Crear Cuenta</h1>
 
-    <form>
-        <input type="text" placeholder="Nombre completo" required>
+    <input type="text" id="nombre" placeholder="Nombre completo"><br><br>
 
-        <input type="email" placeholder="Correo electrónico" required>
+    <input type="email" id="correo" placeholder="Correo"><br><br>
 
-        <input type="password" placeholder="Contraseña" required>
+    <input type="password" id="password" placeholder="Contraseña"><br><br>
 
-        <input type="password" placeholder="Confirmar contraseña" required>
+   <script>
 
-        <button type="submit">Registrarse</button>
-    </form>
+function registrar(){
 
-    <br>
+alert("El botón funciona");
 
-    <a class="volver" href="index.html">⬅ Volver al inicio</a>
+}
+
+</script>
+
+    <br><br>
+
+    <a href="login.html">
+        ¿Ya tienes cuenta? Inicia sesión
+    </a>
 
 </div>
+
+<script>
+function registrar(){
+
+    let nombre = document.getElementById("nombre").value;
+    let correo = document.getElementById("correo").value;
+    let password = document.getElementById("password").value;
+
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("correo", correo);
+    localStorage.setItem("password", password);
+
+    alert("Cuenta creada correctamente");
+
+    window.location.href="login.html";
+}
+</script>
 
 </body>
 </html>
