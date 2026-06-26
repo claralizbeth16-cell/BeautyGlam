@@ -9,9 +9,9 @@
 <body>
 
 <script>
-if(localStorage.getItem("sesion")!="activa"){
+if(localStorage.getItem("sesion") !== "activa"){
     alert("Debes iniciar sesión.");
-    window.location.href="login.html";
+    window.location.href = "login.html";
 }
 </script>
 
@@ -20,23 +20,22 @@ if(localStorage.getItem("sesion")!="activa"){
 </header>
 
 <nav>
-    <a href="productos.html">← Seguir comprando</a>
+    <a href="productos.html">← Seguir Comprando</a>
     <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
 </nav>
 
 <div class="contenedor">
 
-    <div class="carrito" id="listaCarrito">
+    <h2>Productos en tu carrito</h2>
 
-    </div>
+    <div id="listaCarrito"></div>
 
-    <h2 class="total">
-        Total: $<span id="total">0</span>
-    </h2>
+    <h2>Total: $<span id="total">0.00</span></h2>
 
-    <button onclick="window.location.href='compra.html'">
-    Finalizar Compra
-</button>
+    <button onclick="finalizarCompra()">
+        Finalizar Compra
+    </button>
+
 </div>
 
 <script src="script.js"></script>
