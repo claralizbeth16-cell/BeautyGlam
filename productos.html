@@ -1,25 +1,20 @@
-if(localStorage.getItem("sesion")!="activa"){
-
-alert("Debes iniciar sesión.");
-
-window.location.href="login.html";
-
-}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Beauty Glam</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <script>
-// Verificar sesión
-if(localStorage.getItem("sesion")!="activa"){
-    alert("Debes iniciar sesión.");
-    window.location.href="login.html";
+// Verificar que el usuario haya iniciado sesión
+if (localStorage.getItem("sesion") !== "activa") {
+    alert("Debes iniciar sesión para ver los productos.");
+    window.location.href = "login.html";
 }
 </script>
 
@@ -34,57 +29,58 @@ if(localStorage.getItem("sesion")!="activa"){
 
 <div class="contenedor">
 
-<h2>Nuestros Productos</h2>
+    <h2>Nuestros Productos</h2>
 
-<div class="productos">
+    <div class="productos">
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Base">
-<h3>Base Líquida</h3>
-<p>$12</p>
-<button onclick="agregarCarrito('Base Líquida',12)">Agregar al carrito</button>
-</div>
+        <div class="producto">
+            <img src="imagenes/base.jpg" alt="Base Líquida">
+            <h3>Base Líquida</h3>
+            <p>$12</p>
+            <button onclick="agregarCarrito('Base Líquida',12)">Agregar al carrito</button>
+        </div>
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500" alt="Labial">
-<h3>Labial Mate</h3>
-<p>$8</p>
-<button onclick="agregarCarrito('Labial Mate',8)">Agregar al carrito</button>
-</div>
+        <div class="producto">
+            <img src="imagenes/labial.jpg" alt="Labial">
+            <h3>Labial Mate</h3>
+            <p>$8</p>
+            <button onclick="agregarCarrito('Labial Mate',8)">Agregar al carrito</button>
+        </div>
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt="Rubor">
-<h3>Rubor</h3>
-<p>$10</p>
-<button onclick="agregarCarrito('Rubor',10)">Agregar al carrito</button>
-</div>
+        <div class="producto">
+            <img src="imagenes/rubor.jpg" alt="Rubor">
+            <h3>Rubor</h3>
+            <p>$10</p>
+            <button onclick="agregarCarrito('Rubor',10)">Agregar al carrito</button>
+        </div>
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500" alt="Delineador">
-<h3>Delineador</h3>
-<p>$6</p>
-<button onclick="agregarCarrito('Delineador',6)">Agregar al carrito</button>
-</div>
+        <div class="producto">
+            <img src="imagenes/delineador.jpg" alt="Delineador">
+            <h3>Delineador</h3>
+            <p>$6</p>
+            <button onclick="agregarCarrito('Delineador',6)">Agregar al carrito</button>
+        </div>
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1631730486572-226d7693d2c5?w=500" alt="Máscara">
-<h3>Máscara de pestañas</h3>
-<p>$9</p>
-<button onclick="agregarCarrito('Máscara de pestañas',9)">Agregar al carrito</button>
-</div>
+        <div class="producto">
+            <img src="imagenes/mascara.jpg" alt="Máscara">
+            <h3>Máscara de pestañas</h3>
+            <p>$9</p>
+            <button onclick="agregarCarrito('Máscara de pestañas',9)">Agregar al carrito</button>
+        </div>
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?w=500" alt="Paleta">
-<h3>Paleta de Sombras</h3>
-<p>$18</p>
-<button onclick="agregarCarrito('Paleta de Sombras',18)">Agregar al carrito</button>
-</div>
+        <div class="producto">
+            <img src="imagenes/paleta.jpg" alt="Paleta">
+            <h3>Paleta de Sombras</h3>
+            <p>$18</p>
+            <button onclick="agregarCarrito('Paleta de Sombras',18)">Agregar al carrito</button>
+        </div>
 
-</div>
+    </div>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
