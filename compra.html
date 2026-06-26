@@ -1,38 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Compra Exitosa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Finalizar Compra</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
 <header>
+
 <h1>💖 Beauty Glam</h1>
+
 </header>
 
-<div class="contenedor" style="text-align:center;">
+<div class="contenedor">
 
-<h2>🎉 ¡Gracias por tu compra!</h2>
+<h2>Datos para el envío</h2>
 
-<p>
-Tu pedido se ha registrado correctamente.
-</p>
+<input type="text" id="nombre" placeholder="Nombre completo">
 
-<p>
-En unos momentos recibirás un correo con la información de tu compra.
-</p>
+<input type="text" id="cedula" placeholder="Cédula">
 
-<a href="productos.html">
-<button style="width:250px;">
-Volver a la tienda
+<input type="text" id="direccion" placeholder="Dirección">
+
+<input type="text" id="telefono" placeholder="Teléfono">
+
+<h2>Método de pago</h2>
+
+<select id="pago">
+
+<option>Tarjeta Débito</option>
+
+<option>Tarjeta Crédito</option>
+
+<option>Transferencia Bancaria</option>
+
+<option>Efectivo contra entrega</option>
+
+</select>
+
+<br><br>
+
+<button onclick="comprar()">
+
+Confirmar Compra
+
 </button>
-</a>
 
 </div>
 
+<script>
+
+function comprar(){
+
+let nombre=document.getElementById("nombre").value;
+let cedula=document.getElementById("cedula").value;
+let direccion=document.getElementById("direccion").value;
+let telefono=document.getElementById("telefono").value;
+
+if(nombre=="" || cedula=="" || direccion=="" || telefono==""){
+
+alert("Complete todos los campos.");
+
+return;
+
+}
+
+alert("✅ Compra realizada con éxito.\n\nGracias por comprar en Beauty Glam 💖");
+
+localStorage.removeItem("carrito");
+
+window.location.href="productos.html";
+
+}
+
+</script>
+
 </body>
-</html>
-</body>
+
 </html>
