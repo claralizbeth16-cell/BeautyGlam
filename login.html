@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar Sesión</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
 <div class="contenedor">
 
-    <h1>🔐 Iniciar Sesión</h1>
+<h1>🔐 Iniciar Sesión</h1>
 
-    <input type="email" id="correo" placeholder="Correo"><br><br>
+<input type="email" id="correo" placeholder="Correo electrónico">
 
-    <input type="password" id="password" placeholder="Contraseña"><br><br>
+<br><br>
 
-    <button onclick="iniciarSesion()">
-        Ingresar
-    </button>
+<input type="password" id="password" placeholder="Contraseña">
+
+<br><br>
+
+<button onclick="iniciarSesion()">
+Ingresar
+</button>
+
+<br><br>
+
+<p>¿No tienes una cuenta?</p>
+
+<a href="crear-cuenta.html">
+<button type="button">
+Crear Cuenta
+</button>
+</a>
 
 </div>
 
@@ -25,24 +42,34 @@
 
 function iniciarSesion(){
 
-    let correo = document.getElementById("correo").value;
-    let password = document.getElementById("password").value;
+let correo=document.getElementById("correo").value;
+let password=document.getElementById("password").value;
 
-    let correoGuardado = localStorage.getItem("correo");
-    let passwordGuardada = localStorage.getItem("password");
+let correoGuardado=localStorage.getItem("correo");
+let passwordGuardada=localStorage.getItem("password");
 
-    if(correo === correoGuardado &&
-       password === passwordGuardada){
+if(correoGuardado==null){
 
-        localStorage.setItem("sesion","activa");
+alert("Aún no tienes una cuenta. Debes registrarte.");
 
-        window.location.href="productos.html";
+window.location.href="crear-cuenta.html";
 
-    }else{
+return;
 
-        alert("Correo o contraseña incorrectos");
+}
 
-    }
+if(correo==correoGuardado && password==passwordGuardada){
+
+localStorage.setItem("sesion","activa");
+
+window.location.href="productos.html";
+
+}else{
+
+alert("Correo o contraseña incorrectos.");
+
+}
+
 }
 
 </script>
