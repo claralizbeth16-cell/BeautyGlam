@@ -163,15 +163,20 @@ function eliminarProducto(indice){
 // ==========================
 function finalizarCompra(){
 
-    let carrito=JSON.parse(localStorage.getItem("carrito")) || [];
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     if(carrito.length==0){
 
-        alert("El carrito está vacío.");
-
+        alert("Tu carrito está vacío.");
         return;
 
     }
+
+    localStorage.removeItem("carrito");
+
+    window.location.href="compra.html";
+
+}
 
     alert("Gracias por comprar en Beauty Glam 💖");
 
