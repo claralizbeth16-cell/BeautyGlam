@@ -51,7 +51,10 @@ function iniciarSesion(){
 
     if(correo === usuario.correo && password === usuario.password){
 
-        localStorage.setItem("sesion","activa");
+localStorage.setItem("sesion","activa");
+
+window.location.href="productos.html";
+
 
         alert("¡Bienvenido(a) " + usuario.nombre + "!");
 
@@ -68,4 +71,5 @@ function iniciarSesion(){
 </script>
 
 </body>
+</html>
 </html>
