@@ -201,3 +201,62 @@ button:hover{
 .botones a:hover{
     background:#d6006a;
 }
+
+.contenedor{
+
+max-width:600px;
+
+margin:40px auto;
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.contenedor input,
+.contenedor select{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+}
+
+.contenedor button{
+
+width:100%;
+
+padding:15px;
+
+background:#ff4f94;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.contenedor button:hover{
+
+background:#e63b7d;
+
+}
