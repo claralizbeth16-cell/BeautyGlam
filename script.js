@@ -1,38 +1,52 @@
-// ===========================
+// ==========================
+// VERIFICAR SESIÓN
+// ==========================
+function verificarSesion() {
+    if (localStorage.getItem("sesion") !== "activa") {
+        alert("Debes iniciar sesión.");
+        window.location.href = "login.html";
+    }
+}
+
+// ==========================
 // CERRAR SESIÓN
-// ===========================
+// ==========================
 function cerrarSesion() {
 
-    localStorage.removeItem("sesion");
+    if(confirm("¿Deseas cerrar sesión?")){
 
-    alert("Has cerrado sesión correctamente.");
+        localStorage.removeItem("sesion");
 
-    window.location.href = "login.html";
+        alert("Sesión cerrada correctamente.");
+
+        window.location.href="index.html";
+
+    }
 
 }
 
-// ===========================
-// AGREGAR AL CARRITO
-// ===========================
-function agregarCarrito(nombre, precio) {
+// ==========================
+// AGREGAR PRODUCTOS
+// ==========================
+function agregarCarrito(nombre, precio){
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     carrito.push({
-        nombre: nombre,
-        precio: precio
+        nombre:nombre,
+        precio:precio
     });
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito",JSON.stringify(carrito));
 
     alert(nombre + " agregado al carrito.");
 
 }
 
-// ===========================
+// ==========================
 // MOSTRAR CARRITO
-// ===========================
-function mostrarCarrito() {
+// ==========================
+function mostrarCarrito(){
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -40,20 +54,28 @@ function mostrarCarrito() {
 
     let total = 0;
 
-    lista.innerHTML = "";
+    if(!lista) return;
 
-    carrito.forEach((producto, indice) => {
+    lista.innerHTML="";
 
-        total += producto.precio;
+    carrito.forEach((producto,index)=>{
+
+        total += Number(producto.precio);
 
         lista.innerHTML += `
+
         <div class="item">
+
             <span>${producto.nombre} - $${producto.precio}</span>
 
-            <button onclick="eliminarProducto(${indice})">
+            <button onclick="eliminarProducto(${index})">
+
                 Eliminar
+
             </button>
+
         </div>
+
         `;
 
     });
@@ -62,29 +84,29 @@ function mostrarCarrito() {
 
 }
 
-// ===========================
+// ==========================
 // ELIMINAR PRODUCTO
-// ===========================
-function eliminarProducto(indice) {
+// ==========================
+function eliminarProducto(indice){
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    carrito.splice(indice, 1);
+    carrito.splice(indice,1);
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito",JSON.stringify(carrito));
 
     mostrarCarrito();
 
 }
 
-// ===========================
+// ==========================
 // FINALIZAR COMPRA
-// ===========================
-function finalizarCompra() {
+// ==========================
+function finalizarCompra(){
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    if (carrito.length == 0) {
+    if(carrito.length==0){
 
         alert("Tu carrito está vacío.");
 
@@ -92,6 +114,6 @@ function finalizarCompra() {
 
     }
 
-    window.location.href = "compra.html";
+    window.location.href="compra.html";
 
 }
