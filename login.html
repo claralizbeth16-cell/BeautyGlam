@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iniciar Sesión</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Beauty Glam</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="contenedor">
+<header>
+    <h1>💖 Beauty Glam</h1>
+</header>
 
-<h1>🔐 Iniciar Sesión</h1>
+<div class="formulario">
 
-<input type="email" id="correo" placeholder="Correo electrónico">
+    <h2>Iniciar Sesión</h2>
 
-<br><br>
+    <input type="email" id="correo" placeholder="Correo electrónico">
 
-<input type="password" id="password" placeholder="Contraseña">
+    <input type="password" id="password" placeholder="Contraseña">
 
-<br><br>
+    <button onclick="iniciarSesion()">
+        Ingresar
+    </button>
 
-<button onclick="iniciarSesion()">
-Ingresar
-</button>
+    <br><br>
 
-<br><br>
+    <p>¿Aún no tienes una cuenta?</p>
 
-<p>¿No tienes una cuenta?</p>
-
-<a href="crear-cuenta.html">
-<button type="button">
-Crear Cuenta
-</button>
-</a>
+    <a href="crear-cuenta.html">
+        Crear Cuenta
+    </a>
 
 </div>
 
@@ -42,33 +38,30 @@ Crear Cuenta
 
 function iniciarSesion(){
 
-let correo=document.getElementById("correo").value;
-let password=document.getElementById("password").value;
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
 
-let correoGuardado=localStorage.getItem("correo");
-let passwordGuardada=localStorage.getItem("password");
+    if(usuario == null){
+        alert("Primero debes crear una cuenta.");
+        window.location.href="crear-cuenta.html";
+        return;
+    }
 
-if(correoGuardado==null){
+    let correo = document.getElementById("correo").value;
+    let password = document.getElementById("password").value;
 
-alert("Aún no tienes una cuenta. Debes registrarte.");
+    if(correo === usuario.correo && password === usuario.password){
 
-window.location.href="crear-cuenta.html";
+        localStorage.setItem("sesion","activa");
 
-return;
+        alert("¡Bienvenido(a) " + usuario.nombre + "!");
 
-}
+        window.location.href="productos.html";
 
-if(correo==correoGuardado && password==passwordGuardada){
+    }else{
 
-localStorage.setItem("sesion","activa");
+        alert("Correo o contraseña incorrectos.");
 
-window.location.href="productos.html";
-
-}else{
-
-alert("Correo o contraseña incorrectos.");
-
-}
+    }
 
 }
 
