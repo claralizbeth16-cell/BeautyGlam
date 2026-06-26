@@ -1,79 +1,38 @@
-<script>
-
-if(localStorage.getItem("sesion")!="activa"){
-
-    alert("Debes iniciar sesión");
-
-    window.location.href="login.html";
-
-}
-
-</script>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras - Beauty Glam</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compra Exitosa</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>💖 Beauty Glam</h1>
+<h1>💖 Beauty Glam</h1>
 </header>
 
-<div class="contenedor">
+<div class="contenedor" style="text-align:center;">
 
-    <h2>🛒 Mi Carrito</h2>
+<h2>🎉 ¡Gracias por tu compra!</h2>
 
-    <ul id="listaCarrito"></ul>
+<p>
+Tu pedido se ha registrado correctamente.
+</p>
 
-    <h3 id="total">Total: $0</h3>
+<p>
+En unos momentos recibirás un correo con la información de tu compra.
+</p>
 
-    <label>Método de Pago:</label>
-
-    <select>
-        <option>Tarjeta Débito</option>
-        <option>Tarjeta Crédito</option>
-        <option>Transferencia Bancaria</option>
-    </select>
-
-    <br><br>
-
-    <button onclick="finalizarCompra()">Confirmar Compra</button>
-
-    <br><br>
-
-    <a class="volver" href="productos.html">⬅ Volver a Productos</a>
+<a href="productos.html">
+<button style="width:250px;">
+Volver a la tienda
+</button>
+</a>
 
 </div>
 
-<script>
-
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-let lista = document.getElementById("listaCarrito");
-let total = 0;
-
-carrito.forEach(producto => {
-    let li = document.createElement("li");
-    li.textContent = producto.nombre + " - $" + producto.precio;
-    lista.appendChild(li);
-
-    total += producto.precio;
-});
-
-document.getElementById("total").textContent =
-"Total: $" + total.toFixed(2);
-
-function finalizarCompra(){
-    alert("¡Compra realizada con éxito!");
-    localStorage.removeItem("carrito");
-    location.reload();
-}
-
-</script>
-
+</body>
+</html>
 </body>
 </html>
