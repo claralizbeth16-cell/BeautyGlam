@@ -1,55 +1,80 @@
-<h2>Datos para la compra</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Beauty Glam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<input type="text" id="nombre" placeholder="Nombre completo">
+<script>
+if(localStorage.getItem("sesion") !== "activa"){
+    alert("Debes iniciar sesión.");
+    window.location.href = "login.html";
+}
+</script>
 
-<input type="text" id="direccion" placeholder="Dirección">
+<header>
+    <h1>💖 Beauty Glam</h1>
+</header>
 
-<input type="text" id="telefono" placeholder="Teléfono">
+<div class="formulario">
 
-<select id="pago">
+    <h2>Finalizar Compra</h2>
 
-<option>Tarjeta Débito</option>
+    <input type="text" id="nombre" placeholder="Nombre completo">
 
-<option>Tarjeta Crédito</option>
+    <input type="text" id="direccion" placeholder="Dirección">
 
-<option>Transferencia</option>
+    <input type="text" id="telefono" placeholder="Teléfono">
 
-<option>Efectivo contra entrega</option>
+    <select id="metodoPago">
+        <option value="">Seleccione un método de pago</option>
+        <option>Tarjeta Débito</option>
+        <option>Tarjeta Crédito</option>
+        <option>Transferencia Bancaria</option>
+        <option>Efectivo Contra Entrega</option>
+    </select>
 
-</select>
+    <br><br>
 
-<button onclick="comprar()">
-Confirmar Compra
-</button>
+    <button onclick="confirmarCompra()">
+        Confirmar Compra
+    </button>
+
+    <br><br>
+
+    <a href="carrito.html">⬅ Volver al carrito</a>
+
+</div>
 
 <script>
 
-function comprar(){
+function confirmarCompra(){
 
-let nombre=document.getElementById("nombre").value;
-let direccion=document.getElementById("direccion").value;
-let telefono=document.getElementById("telefono").value;
+    let nombre = document.getElementById("nombre").value;
+    let direccion = document.getElementById("direccion").value;
+    let telefono = document.getElementById("telefono").value;
+    let pago = document.getElementById("metodoPago").value;
 
-if(nombre=="" || direccion=="" || telefono==""){
+    if(nombre=="" || direccion=="" || telefono=="" || pago==""){
 
-alert("Complete todos los datos");
+        alert("Por favor complete todos los datos.");
 
-return;
+        return;
+
+    }
+
+    alert("🎉 ¡Gracias por comprar en Beauty Glam!\n\nTu pedido fue realizado correctamente.");
+
+    localStorage.removeItem("carrito");
+
+    window.location.href="productos.html";
 
 }
-
-alert("Compra realizada correctamente ❤️");
-
-localStorage.removeItem("carrito");
-
-window.location.href="index.html";
-
-}
-
-</script>
 
 </script>
 
 </body>
-
 </html>
