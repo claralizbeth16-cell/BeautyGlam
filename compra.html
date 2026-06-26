@@ -1,49 +1,78 @@
+<script>
+
+if(localStorage.getItem("sesion")!="activa"){
+
+    alert("Debes iniciar sesión");
+
+    window.location.href="login.html";
+
+}
+
+</script>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Crear Cuenta - Beauty Glam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Beauty Glam</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<header>
+    <h1>💖 Beauty Glam</h1>
+</header>
+
 <div class="contenedor">
 
-    <h1>💖 Crear Cuenta</h1>
+    <h2>🛒 Mi Carrito</h2>
 
-    <input type="text" id="nombre" placeholder="Nombre completo"><br><br>
+    <ul id="listaCarrito"></ul>
 
-    <input type="email" id="correo" placeholder="Correo"><br><br>
+    <h3 id="total">Total: $0</h3>
 
-    <input type="password" id="password" placeholder="Contraseña"><br><br>
+    <label>Método de Pago:</label>
 
-    <button onclick="registrar()">
-        Registrarse
-    </button>
+    <select>
+        <option>Tarjeta Débito</option>
+        <option>Tarjeta Crédito</option>
+        <option>Transferencia Bancaria</option>
+    </select>
 
     <br><br>
 
-    <a href="login.html">
-        ¿Ya tienes cuenta? Inicia sesión
-    </a>
+    <button onclick="finalizarCompra()">Confirmar Compra</button>
+
+    <br><br>
+
+    <a class="volver" href="productos.html">⬅ Volver a Productos</a>
 
 </div>
 
 <script>
-function registrar(){
 
-    let nombre = document.getElementById("nombre").value;
-    let correo = document.getElementById("correo").value;
-    let password = document.getElementById("password").value;
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    localStorage.setItem("nombre", nombre);
-    localStorage.setItem("correo", correo);
-    localStorage.setItem("password", password);
+let lista = document.getElementById("listaCarrito");
+let total = 0;
 
-    alert("Cuenta creada correctamente");
+carrito.forEach(producto => {
+    let li = document.createElement("li");
+    li.textContent = producto.nombre + " - $" + producto.precio;
+    lista.appendChild(li);
 
-    window.location.href="login.html";
+    total += producto.precio;
+});
+
+document.getElementById("total").textContent =
+"Total: $" + total.toFixed(2);
+
+function finalizarCompra(){
+    alert("¡Compra realizada con éxito!");
+    localStorage.removeItem("carrito");
+    location.reload();
 }
+
 </script>
 
 </body>
