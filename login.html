@@ -2,34 +2,50 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Beauty Glam</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>💖 Beauty Glam</h1>
-</header>
-
 <div class="contenedor">
 
-    <h2>Iniciar Sesión</h2>
-    <p>Bienvenida de nuevo a Beauty Glam.</p>
+    <h1>🔐 Iniciar Sesión</h1>
 
-    <form>
-        <input type="email" placeholder="Correo electrónico" required>
+    <input type="email" id="correo" placeholder="Correo"><br><br>
 
-        <input type="password" placeholder="Contraseña" required>
+    <input type="password" id="password" placeholder="Contraseña"><br><br>
 
-        <button type="submit">Ingresar</button>
-    </form>
-
-    <br>
-
-    <a class="volver" href="index.html">⬅ Volver al inicio</a>
+    <button onclick="iniciarSesion()">
+        Ingresar
+    </button>
 
 </div>
+
+<script>
+
+function iniciarSesion(){
+
+    let correo = document.getElementById("correo").value;
+    let password = document.getElementById("password").value;
+
+    let correoGuardado = localStorage.getItem("correo");
+    let passwordGuardada = localStorage.getItem("password");
+
+    if(correo === correoGuardado &&
+       password === passwordGuardada){
+
+        localStorage.setItem("sesion","activa");
+
+        window.location.href="productos.html";
+
+    }else{
+
+        alert("Correo o contraseña incorrectos");
+
+    }
+}
+
+</script>
 
 </body>
 </html>
