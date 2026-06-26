@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Finalizar Compra</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<header>
-
-<h1>💖 Beauty Glam</h1>
-
-</header>
-
-<div class="contenedor">
-
-<h2>Datos para el envío</h2>
+<h2>Datos para la compra</h2>
 
 <input type="text" id="nombre" placeholder="Nombre completo">
-
-<input type="text" id="cedula" placeholder="Cédula">
 
 <input type="text" id="direccion" placeholder="Dirección">
 
 <input type="text" id="telefono" placeholder="Teléfono">
-
-<h2>Método de pago</h2>
 
 <select id="pago">
 
@@ -39,46 +12,41 @@
 
 <option>Tarjeta Crédito</option>
 
-<option>Transferencia Bancaria</option>
+<option>Transferencia</option>
 
 <option>Efectivo contra entrega</option>
 
 </select>
 
-<br><br>
-
 <button onclick="comprar()">
-
 Confirmar Compra
-
 </button>
-
-</div>
 
 <script>
 
 function comprar(){
 
 let nombre=document.getElementById("nombre").value;
-let cedula=document.getElementById("cedula").value;
 let direccion=document.getElementById("direccion").value;
 let telefono=document.getElementById("telefono").value;
 
-if(nombre=="" || cedula=="" || direccion=="" || telefono==""){
+if(nombre=="" || direccion=="" || telefono==""){
 
-alert("Complete todos los campos.");
+alert("Complete todos los datos");
 
 return;
 
 }
 
-alert("✅ Compra realizada con éxito.\n\nGracias por comprar en Beauty Glam 💖");
+alert("Compra realizada correctamente ❤️");
 
 localStorage.removeItem("carrito");
 
-window.location.href="productos.html";
+window.location.href="index.html";
 
 }
+
+</script>
 
 </script>
 
